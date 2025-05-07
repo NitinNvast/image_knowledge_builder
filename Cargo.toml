@@ -10,6 +10,7 @@ edition = "2021"
 base64 = "0.22.1"
 dioxus = { version = "0.6.3", features = [] }
 dioxus-router = "0.6.3"
+dioxus-signals = "0.6.3"
 image = "0.25.6"
 rfd = "0.15.3"
 
