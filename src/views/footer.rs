@@ -1,67 +1,23 @@
 use dioxus::prelude::*;
 
-#[derive(Props, PartialEq, Clone)]
-pub struct FooterProps {
-    pick_image: EventHandler<MouseEvent>,
-    selected: Signal<String>,
-}
-
-pub fn Footer(props: FooterProps) -> Element {
-    // let mut selected = use_signal(|| "".to_string());
-
+pub fn Footer() -> Element {
     rsx! {
-        footer { class: "bg-gray-400 flex flex-col justify-center items-center p-2 border-t text-sm",
-
-            div { class: "flex items-center gap-1",
-
-                // File open button (folder icon)
-                button {
-                    class: "px-2 py-1 bg-white border rounded",
-                    // onclick: move |_| {
-                    //     if let Some(file) = FileDialog::new().pick_file() {
-                    //         selected.set(file.display().to_string());
-                    //     }
-                    // },
-
-                    onclick: props.pick_image,
-                    "📂"
-                }
-
-                // Navigation buttons
-                button { class: "text-blue-600", "⏮️" }
-                button { class: "text-blue-600", "◀️" }
-                button { class: "text-blue-600", "⏸️" }
-                button { class: "text-blue-600", "▶️" }
-                button { class: "text-blue-600", "⏭️" }
-
-                // Green play button
-                button { class: "text-green-600", "▶️" }
-
-                // Text input and labels
-                input {
-                    r#type: "text",
-                    class: "w-10 text-center border rounded",
-                    placeholder: "",
-                }
-                span { "of" }
-
-                input {
-                    r#type: "text",
-                    class: "w-14 text-center border rounded",
-                    value: "Count",
-                }
-
-                span { "Increment" }
-
-                input {
-                    r#type: "text",
-                    class: "w-6 text-center border rounded",
-                    placeholder: "",
-                }
-
-                // Display selected file path (truncated)
-                span { class: "ml-2 truncate text-gray-800 max-w-[200px]", "{props.selected}" }
+       div {
+            class: "bg-gray-100 text-xs p-1 flex flex-col space-y-1",
+            div {
+                class: "flex justify-between w-full",
+                span { "NN capacity:8000" }
+                span { "Neurons:0" }
+                span { "Timings OFF" }
+                span { class: "text-yellow-600 font-bold", "Loading default project file..." }
             }
-        }
+            div {
+                class: "flex flex-wrap gap-2",
+                span { class: "text-blue-700", "Project: default.csp" }
+                span { "ImageFile" }
+                span { "ROI: 16x16, Subsample, with blocks 1x1, Minif: 2, Maxif: 16384" }
+                span { class: "text-blue-700", "Search Area: [0, 0, 0, 0]" }
+            }
+          }
     }
 }

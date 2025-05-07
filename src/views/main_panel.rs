@@ -6,7 +6,7 @@ use std::fs;
 
 use crate::components::learn::LearnSection;
 use crate::components::reco::RecoSection;
-use crate::views::footer::Footer;
+use crate::views::file_explore::FileExplore;
 
 pub fn MainPanel() -> Element {
     // Make signal mutable
@@ -37,6 +37,6 @@ pub fn MainPanel() -> Element {
             LearnSection { image_data_url: image_data_url.clone() }
             RecoSection { image_data_url: image_data_url.clone() }
         }
-        Footer { pick_image, selected }
+        FileExplore { pick_image, selected }
     }
 }

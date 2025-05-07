@@ -7,10 +7,10 @@ pub struct RecoSectionProps {
 
 pub fn RecoSection(props: RecoSectionProps) -> Element {
     rsx! {
-        section { class: "w-full flex flex-col gap-6  p-4  text-sm",
+        section { class: "w-full flex flex-col gap-6 p-4 text-sm",
 
             // Top bar: Learn button, dropdowns, select image, auto checkbox
-            div { class: "flex flex-wrap  justify-start gap-10 h-20",
+            div { class: "flex flex-wrap  justify-start gap-10 h-28",
 
                 div { class: "flex flex-col gap-2",
 
@@ -32,7 +32,7 @@ pub fn RecoSection(props: RecoSectionProps) -> Element {
                                 option { "MapOfIdentifiers" }
                             }
                         }
-                    
+
                     }
 
                     div { class: "flex flex-wrap gap-10 justify-start items-center",
@@ -68,7 +68,7 @@ pub fn RecoSection(props: RecoSectionProps) -> Element {
                         }
                     }
 
-                    div { class: "flex flex-wrap gap-10 justify-start items-center -mt-3",
+                    div { class: "flex flex-wrap gap-10 justify-start items-center",
 
                         div { class: "flex justify-start items-center gap-2",
                             input { r#type: "checkbox", id: "fullimage" }
@@ -115,6 +115,7 @@ pub fn RecoSection(props: RecoSectionProps) -> Element {
             div { class: "bg-white flex-1 h-[400px] mt-4 flex items-center justify-center",
                 img {
                     src: props.image_data_url,
+                    alt: "Recongnized image",
                     class: "object-contain max-h-full",
                 }
             }
