@@ -1,14 +1,26 @@
-use dioxus::{html::div, prelude::*};
-
+use base64::Engine as _;
+use dioxus::prelude::*;
+use std::fs;
 #[derive(Props, PartialEq, Clone)]
 pub struct RecoSectionProps {
     image_data_url: Signal<Option<String>>,
 }
 
+fn load_svg_as_data_url(path: &str) -> String {
+    let svg_bytes = fs::read(path).expect("Failed to read SVG file");
+    let encoded = base64::engine::general_purpose::STANDARD.encode(svg_bytes);
+    format!("data:image/svg+xml;base64,{}", encoded)
+}
+
 pub fn RecoSection(props: RecoSectionProps) -> Element {
-    let image_src = props.image_data_url.read().clone().unwrap_or(
-        "/home/nitin/Nitin_Personal/Rust/image_knowledge_builder/assets/lens.svg".to_string(),
-    );
+    // Later in your component function
+    let fallback_image = load_svg_as_data_url("assets/lens.svg");
+
+    let image_src = props
+        .image_data_url
+        .read()
+        .clone()
+        .unwrap_or(fallback_image);
 
     rsx! {
         section { class: "w-full flex flex-col gap-6 p-4 text-sm",
