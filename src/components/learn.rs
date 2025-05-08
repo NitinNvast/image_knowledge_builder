@@ -6,6 +6,10 @@ pub struct LearnSectionProps {
 }
 
 pub fn LearnSection(props: LearnSectionProps) -> Element {
+    let image_src = props.image_data_url.read().clone().unwrap_or(
+        "/home/nitin/Nitin_Personal/Rust/image_knowledge_builder/assets/teacher.svg".to_string(),
+    );
+
     rsx! {
         section { class: "w-full flex flex-col gap-2 p-4 text-sm",
 
@@ -71,7 +75,7 @@ pub fn LearnSection(props: LearnSectionProps) -> Element {
             div { class: "bg-white flex-1 h-[400px] mt-4 flex items-center justify-center",
                 img {
                     // src: "/path/to/learn.png", // Replace with actual image URL or logic
-                    src: props.image_data_url,
+                    src: image_src,
                     alt: "Learn Image",
                     class: "object-contain max-h-full",
                 }

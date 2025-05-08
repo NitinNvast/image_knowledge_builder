@@ -6,6 +6,10 @@ pub struct RecoSectionProps {
 }
 
 pub fn RecoSection(props: RecoSectionProps) -> Element {
+    let image_src = props.image_data_url.read().clone().unwrap_or(
+        "/home/nitin/Nitin_Personal/Rust/image_knowledge_builder/assets/lens.svg".to_string(),
+    );
+
     rsx! {
         section { class: "w-full flex flex-col gap-6 p-4 text-sm",
 
@@ -114,7 +118,7 @@ pub fn RecoSection(props: RecoSectionProps) -> Element {
             // Image preview placeholder
             div { class: "bg-white flex-1 h-[400px] mt-4 flex items-center justify-center",
                 img {
-                    src: props.image_data_url,
+                    src: image_src,
                     alt: "Recongnized image",
                     class: "object-contain max-h-full",
                 }
