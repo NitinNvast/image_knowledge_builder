@@ -37,7 +37,7 @@ pub fn MainPanel() -> Element {
             LearnSection { image_data_url: image_data_url.clone() }
 
             // StepXY Inputs
-            div { class: "flex flex-col justify-start relative top-28 items-center text-xs gap-y-2 ",
+            div { class: "flex flex-col justify-start relative top-28 items-center text-xs gap-2 ",
                 label { "Scale" }
                 input {
                     r#type: "number",

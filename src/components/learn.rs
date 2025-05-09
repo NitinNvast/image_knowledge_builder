@@ -125,7 +125,7 @@ pub fn LearnSection(props: LearnSectionProps) -> Element {
 
                     // Select Full Image Button
                     div { class: "flex items-center gap-2",
-                        button { class: "bg-white text-xs px-1 py-1 rounded border shadow",
+                        button { class: "bg-white text-xs px-2 py-1 rounded border shadow",
                             "Select full image"
                         }
                     }

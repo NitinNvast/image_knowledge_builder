@@ -125,11 +125,11 @@ pub fn RecoSection(props: RecoSectionProps) -> Element {
                         // Auto Checkbox
                         div { class: "flex flex-col items-start gap-2",
 
-                            span {
+                            span { class: "flex items-center gap-2",
                                 input { r#type: "checkbox", id: "auto" }
                                 label { r#for: "auto", "Auto" }
                             }
-                            span {
+                            span { class: "flex items-center gap-2",
                                 input { r#type: "checkbox", id: "fullimage" }
                                 label { r#for: "fullimage", "Full image" }
                             }
