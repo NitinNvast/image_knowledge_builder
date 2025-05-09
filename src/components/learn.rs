@@ -22,16 +22,77 @@ pub fn LearnSection(props: LearnSectionProps) -> Element {
         .unwrap_or(fallback_image);
 
     rsx! {
-        section { class: "w-full flex flex-col gap-2 p-4 text-sm",
+        section { class: "text-xs w-full flex flex-col gap-2 p-4",
 
-            div { class: "flex flex-col gap-2 h-32",
+            // div { class: "flex flex-col gap-2 h-32",
 
-                div { class: "flex flex-wrap gap-x-10 justify-start items-start",
+            //     div { class: "flex flex-wrap gap-x-10 justify-start items-start",
 
-                    div { class: "flex justify-start items-center gap-2",
-                        button { class: "bg-white p-3 rounded border shadow", "Learn" }
+            //         div { class: "flex justify-start items-center gap-2",
+            //             button { class: "bg-white p-3 rounded border shadow", "Learn" }
+            //         }
+
+            //         div { class: "flex flex-col gap-2",
+            //             label { "Learn Mode" }
+            //             select { class: "border rounded",
+            //                 option { "Codebook" }
+            //                 option { "Annotations" }
+            //             }
+            //         }
+
+            //         div { class: "flex flex-col gap-2",
+            //             label { "Categories" }
+            //             select { class: "border rounded",
+            //                 option { "Increment" }
+            //                 option { "Constant" }
+            //                 option { "MaxDeltaAmplitude" }
+            //                 option { "AvgAmplitude" }
+            //                 option { "InputIndex" }
+            //             }
+            //         }
+            //     }
+
+            //     div { class: "flex flex-wrap gap-10 justify-start items-center",
+
+            //         div { class: "flex justify-start items-center gap-2",
+            //             input { r#type: "checkbox", id: "auto" }
+            //             label { r#for: "auto", "Auto" }
+            //         }
+
+            //         div { class: "flex justify-start items-center gap-2",
+            //             button { class: "co bg-white px-3 py-1 rounded border shadow",
+            //                 "Select full image"
+            //             }
+            //         }
+
+            //         div { class: "flex justify-start items-  gap-2 -ml-5",
+            //             label { "StepXY" }
+            //             input {
+            //                 r#type: "number",
+            //                 value: "16",
+            //                 class: "w-12 p-1 border rounded",
+            //             }
+            //             input {
+            //                 r#type: "number",
+            //                 value: "16",
+            //                 class: "w-12 p-1 border rounded",
+            //             }
+            //         }
+            //     }
+            // }
+
+
+            div { class: "w-3/4 grid grid-rows-2 gap-4 h-32 items-start justify-items-start",
+
+                // First Row
+                div { class: "w-full grid grid-cols-3 gap-x-10 items-start",
+
+                    // Learn Button
+                    div { class: "flex items-center gap-2",
+                        button { class: "bg-white p-4 rounded border shadow", "Learn" }
                     }
 
+                    // Learn Mode
                     div { class: "flex flex-col gap-2",
                         label { "Learn Mode" }
                         select { class: "border rounded",
@@ -40,6 +101,7 @@ pub fn LearnSection(props: LearnSectionProps) -> Element {
                         }
                     }
 
+                    // Categories
                     div { class: "flex flex-col gap-2",
                         label { "Categories" }
                         select { class: "border rounded",
@@ -52,20 +114,24 @@ pub fn LearnSection(props: LearnSectionProps) -> Element {
                     }
                 }
 
-                div { class: "flex flex-wrap gap-10 justify-start items-center",
+                // Second Row
+                div { class: "w-full grid grid-cols-3 gap-x-10 items-center justify-start",
 
-                    div { class: "flex justify-start items-center gap-2",
+                    // Auto Checkbox
+                    div { class: "flex items-center gap-2",
                         input { r#type: "checkbox", id: "auto" }
                         label { r#for: "auto", "Auto" }
                     }
 
-                    div { class: "flex justify-start items-center gap-2",
-                        button { class: "co bg-white px-3 py-1 rounded border shadow",
+                    // Select Full Image Button
+                    div { class: "flex items-center gap-2",
+                        button { class: "bg-white text-xs px-1 py-1 rounded border shadow",
                             "Select full image"
                         }
                     }
 
-                    div { class: "flex justify-start items-  gap-2 -ml-5",
+                    // StepXY Inputs
+                    div { class: "flex items-center gap-2",
                         label { "StepXY" }
                         input {
                             r#type: "number",
@@ -83,7 +149,7 @@ pub fn LearnSection(props: LearnSectionProps) -> Element {
 
 
             // Image preview placeholder
-            div { class: "bg-white flex-1 h-[400px] mt-4 flex items-center justify-center",
+            div { class: "bg-white flex-1 h-[400px] flex items-center justify-center",
                 img {
                     // src: "/path/to/learn.png", // Replace with actual image URL or logic
                     src: image_src,

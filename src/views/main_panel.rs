@@ -33,8 +33,18 @@ pub fn MainPanel() -> Element {
     };
 
     rsx! {
-        main { class: "w-full flex flex-row gap-2 flex-1 bg-gray-400 p-4 rounded shadow",
+        main { class: "w-full flex flex-row flex-1 bg-gray-400 p-4 rounded shadow",
             LearnSection { image_data_url: image_data_url.clone() }
+
+            // StepXY Inputs
+            div { class: "flex flex-col justify-start relative top-28 items-center text-xs gap-y-2 ",
+                label { "Scale" }
+                input {
+                    r#type: "number",
+                    value: "4",
+                    class: "w-10 p-1 border rounded",
+                }
+            }
             RecoSection { image_data_url: image_data_url.clone() }
         }
         FileExplore { pick_image, selected }

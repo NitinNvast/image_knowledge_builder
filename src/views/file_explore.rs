@@ -10,7 +10,7 @@ pub fn FileExplore(props: FileExploreProps) -> Element {
     // let mut selected = use_signal(|| "".to_string());
 
     rsx! {
-        footer { class: "bg-gray-400 flex flex-col p-2 border-t text-sm",
+        footer { class: "bg-gray-400 flex flex-col p-2 border-t text-xs",
             div { class: "flex  justify-center items-center gap-1",
 
                 // File open button (folder icon)

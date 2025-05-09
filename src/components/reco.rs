@@ -23,19 +23,88 @@ pub fn RecoSection(props: RecoSectionProps) -> Element {
         .unwrap_or(fallback_image);
 
     rsx! {
-        section { class: "w-full flex flex-col gap-6 p-4 text-sm",
+        section { class: "w-full text-xs flex flex-col gap-6 p-4 text-sm",
 
             // Top bar: Learn button, dropdowns, select image, auto checkbox
             div { class: "flex flex-wrap  justify-start gap-10 h-28",
 
-                div { class: "flex flex-col gap-2",
+                // div { class: "flex flex-col gap-2",
 
-                    div { class: "flex flex-wrap gap-10 justify-start items-center",
+                //     div { class: "flex flex-wrap gap-10 justify-start items-center",
 
-                        div { class: "flex justify-start items-center gap-2",
-                            button { class: "bg-white p-3 rounded border shadow", "Reco" }
+                //         div { class: "flex justify-start items-center gap-2",
+                //             button { class: "bg-white p-3 rounded border shadow", "Reco" }
+                //         }
+
+                //         div { class: "flex flex-col gap-2",
+                //             label { "Output Mode" }
+                //             select { class: "border rounded",
+                //                 option { "Objects" }
+                //                 option { "Clusters" }
+                //                 option { "Anomalies" }
+                //                 option { "MapOfCategories" }
+                //                 option { "MapOfModels" }
+                //                 option { "MapOfDistances" }
+                //                 option { "MapOfIdentifiers" }
+                //             }
+                //         }
+
+                //     }
+
+                //     div { class: "flex flex-wrap gap-10 justify-start items-center",
+
+                //         div { class: "flex justify-start items-center gap-2",
+                //             input { r#type: "checkbox", id: "auto" }
+                //             label { r#for: "auto", "Auto" }
+                //         }
+
+                //         div { class: "flex justify-start items-center gap-2",
+                //             label { "StepXY" }
+
+                //             input {
+                //                 r#type: "number",
+                //                 value: "16",
+                //                 class: "w-12 p-1 border rounded",
+                //             }
+                //             input {
+                //                 r#type: "number",
+                //                 value: "16",
+                //                 class: "w-12 p-1 border rounded",
+                //             }
+
+                //             span { class: "flex items-center gap-1",
+                //                 input { r#type: "checkbox", id: "skipx" }
+                //                 label { r#for: "skipx", "SkipX" }
+                //             }
+
+                //             span { class: "flex items-center gap-1",
+                //                 input { r#type: "checkbox", id: "skipy" }
+                //                 label { r#for: "skipy", "SkipY" }
+                //             }
+                //         }
+                //     }
+
+                //     div { class: "flex flex-wrap gap-10 justify-start items-center",
+
+                //         div { class: "flex justify-start items-center gap-2",
+                //             input { r#type: "checkbox", id: "fullimage" }
+                //             label { r#for: "fullimage", "Full image" }
+                //         }
+                //     }
+                // }
+
+
+                div { class: "w-3/4 grid grid-rows-2 gap-4 h-32 items-start justify-items-start",
+
+                    // First Row
+                    div { class: "w-full grid grid-cols-3 gap-x-10 items-start",
+
+                        // Learn Button
+                        div { class: "flex items-center gap-2",
+                            button { class: "bg-white p-4 rounded border shadow", "Reco" }
                         }
 
+                        // Categories
                         div { class: "flex flex-col gap-2",
                             label { "Output Mode" }
                             select { class: "border rounded",
@@ -48,17 +117,26 @@ pub fn RecoSection(props: RecoSectionProps) -> Element {
                                 option { "MapOfIdentifiers" }
                             }
                         }
-
                     }
 
-                    div { class: "flex flex-wrap gap-10 justify-start items-center",
+                    // Second Row
+                    div { class: "w-full grid grid-cols-3 gap-x-10 items-center justify-start",
 
-                        div { class: "flex justify-start items-center gap-2",
-                            input { r#type: "checkbox", id: "auto" }
-                            label { r#for: "auto", "Auto" }
+                        // Auto Checkbox
+                        div { class: "flex flex-col items-start gap-2",
+
+                            span {
+                                input { r#type: "checkbox", id: "auto" }
+                                label { r#for: "auto", "Auto" }
+                            }
+                            span {
+                                input { r#type: "checkbox", id: "fullimage" }
+                                label { r#for: "fullimage", "Full image" }
+                            }
                         }
 
-                        div { class: "flex justify-start items-center gap-2",
+                        // StepXY Inputs
+                        div { class: "flex items-center gap-2",
                             label { "StepXY" }
 
                             input {
@@ -83,21 +161,13 @@ pub fn RecoSection(props: RecoSectionProps) -> Element {
                             }
                         }
                     }
-
-                    div { class: "flex flex-wrap gap-10 justify-start items-center",
-
-                        div { class: "flex justify-start items-center gap-2",
-                            input { r#type: "checkbox", id: "fullimage" }
-                            label { r#for: "fullimage", "Full image" }
-                        }
-                    }
                 }
 
                 // Right group: radio buttons
                 div { class: "flex flex-col justify-start items-center border p-2 rounded shadow ",
                     label { class: "font-bold pb-2", "Show" }
 
-                    div { class: "flex flex-col gap-1",
+                    div { class: "flex flex-col gap-4",
                         div { class: "flex justify-start items-center gap-2",
                             input {
                                 r#type: "radio",
@@ -128,7 +198,7 @@ pub fn RecoSection(props: RecoSectionProps) -> Element {
             }
 
             // Image preview placeholder
-            div { class: "bg-white flex-1 h-[400px] mt-4 flex items-center justify-center",
+            div { class: "bg-white flex-1 h-[400px] flex items-center justify-center",
                 img {
                     src: image_src,
                     alt: "Recongnized image",
